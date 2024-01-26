@@ -1,0 +1,18 @@
+Movie.objects.filter(id=3)
+Movie.objects.get(id=3) 
+Movie.objects.filter(id=3).update(genre="Thriller")
+Movie.objects.filter(id=1).delete()
+
+field lookup
+<  __lt
+<= __lte
+> __gt
+>= __gte
+qs=Movie.objects.filter(year__lt=2024)
+
+--exclude,(not equal to)
+qs=Movie.objects.exclude(language="Hindi")
+
+--listing all genres
+qs=Movie.objects.all().values_list("genre",flat=True).distinct()
+flat-->remove unwanted tuples from listing
